@@ -17,6 +17,7 @@ package com.example.android.miwok
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import java.util.ArrayList
 import android.widget.ListView
 
@@ -28,55 +29,29 @@ class NumbersActivity : AppCompatActivity() {
         setContentView(R.layout.word_list)
 
         // Create a list of words
-        val words = ArrayList < Word >()
-        words.add(Word("one", "lutti"))
-        words.add(Word("two", "otiiko"))
-        words.add(Word("three", "tolookosu"))
-        words.add(Word("four", "oyyisa"))
-        words.add(Word("five", "massokka"))
-        words.add(Word("six", "temmokka"))
-        words.add(Word("seven", "kenekaku"))
-        words.add(Word("eight", "kawinta"))
-        words.add(Word("nine", "wo’e"))
-        words.add(Word("ten", "na’aacha"))
+        val words = ArrayList<Word>()
+        words.add(Word("one", "lutti", R.drawable.number_one))
+        words.add(Word("two", "otiiko", R.drawable.number_two))
+        words.add(Word("three", "tolookosu", R.drawable.number_three))
+        words.add(Word("four", "oyyisa", R.drawable.number_four))
+        words.add(Word("five", "massokka", R.drawable.number_five))
+        words.add(Word("six", "temmokka", R.drawable.number_six))
+        words.add(Word("seven", "kenekaku", R.drawable.number_seven))
+        words.add(Word("eight", "kawinta", R.drawable.number_eight))
+        words.add(Word("nine", "wo’e", R.drawable.number_nine))
+        words.add(Word("ten", "na’aacha", R.drawable.number_ten))
 
-        val itemsAdapter = WordAdapter(this, words)
+        // Create an {@link WordAdapter}, whose data source is a list of {@link Word}s. The
+        // adapter knows how to create list items for each item in the list.
+        val adapter = WordAdapter(this, words)
 
-        val listView = findViewById<ListView>(R.id.list)
+        // Find the {@link ListView} object in the view hierarchy of the {@link Activity}.
+        // There should be a {@link ListView} with the view ID called list, which is declared in the
+        // word_list.xml layout file.
+        val listView = findViewById<View>(R.id.list) as ListView
 
-        listView.adapter = itemsAdapter
-
-//        val rootView = findViewById<LinearLayout>(R.id.rootView)
-//
-//        // Create a variable to keep track of the current index position
-//        var index = 0
-//
-//        // Keep looping until we've reached the end of the list (which means keep looping
-//        // as long as the current index position is less than the length of the list)
-//        while (index < words.size) {
-//            // Create a new TextView
-//            val wordView = TextView(this)
-//
-//            // Set the text to be word at the current index
-//            wordView.text = words.get(index)
-//
-//            // Add this TextView as another child to the root view of this layout
-//            rootView.addView(wordView)
-//
-//            // Increment the index variable by 1
-//            index++
-//        }
-
-
-//        for (for_index in 0 until words.size) {
-//            // Create a new TextView
-//            val wordView = TextView(this)
-//
-//            // Set the text to be word at the current index
-//            wordView.text = words[for_index]
-//
-//            // Add this TextView as another child to the root view of this layout
-//            rootView.addView(wordView)
-//        }
+        // Make the {@link ListView} use the {@link WordAdapter} we created above, so that the
+        // {@link ListView} will display list items for each {@link Word} in the list.
+        listView.adapter = adapter
     }
 }

@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // Find the View that shows the numbers category
-        val numbers = findViewById(R.id.numbers) as TextView?
+        val numbers = findViewById<TextView>(R.id.numbers)
 
         // Set a click listener on that View
         numbers!!.setOnClickListener{ // The code in this method will be executed when the numbers category is clicked on.
@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Find the View that shows the family category
-        val family = findViewById(R.id.family) as TextView?
+        val family = findViewById<TextView>(R.id.family)
 
         // Set a click listener on that View
         family!!.setOnClickListener{
@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
         }
 
             // Find the View that shows the colors category
-            val colors = findViewById(R.id.colors) as TextView?
+            val colors = findViewById<TextView>(R.id.colors)
 
             // Set a click listener on that View
             colors!!.setOnClickListener{
@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             // Find the View that shows the phrases category
-            val phrases = findViewById(R.id.phrases) as TextView?
+            val phrases = findViewById<TextView>(R.id.phrases)
 
             // Set a click listener on that View
             phrases!!.setOnClickListener{

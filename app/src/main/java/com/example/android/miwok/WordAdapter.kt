@@ -6,6 +6,9 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import android.view.LayoutInflater
+import android.view.View.GONE
+import android.view.View.VISIBLE
+import android.widget.ImageView
 
 
 /**
@@ -57,6 +60,18 @@ class WordAdapter
         // Get the version number from the current AndroidFlavor object and
         // set this text on the number TextView
         defaultTextView.text = currentWord.defaultTranslation
+
+        val imageViewMiwok = listItemView.findViewById(R.id.list_item_image) as ImageView
+
+        if (currentWord.checkImage(currentWord.mImageResourceId)){
+            imageViewMiwok.setImageResource(currentWord.mImageResourceId)
+            imageViewMiwok.visibility = VISIBLE
+        }else{
+            imageViewMiwok.visibility = GONE
+        }
+        // Find the TextView in the list_item.xml layout with the ID version_number
+        // Get the version number from the current AndroidFlavor object and
+        // set this text on the number TextView
 
 
         // Return the whole list item layout (containing 2 TextViews and an ImageView)
