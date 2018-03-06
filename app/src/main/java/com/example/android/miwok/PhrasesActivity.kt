@@ -19,6 +19,12 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ListView
+import android.media.MediaPlayer
+import android.widget.AdapterView
+
+
+
+
 
 class PhrasesActivity : AppCompatActivity() {
 
@@ -28,7 +34,7 @@ class PhrasesActivity : AppCompatActivity() {
 
         // Create a list of words
         val words = ArrayList<Word>()
-        words.add(Word("Where are you going?", "minto wuksus"))
+        words.add(Word("Where are you going?", "minto wuksus", R.raw.phrase_where_are_you_going))
         words.add(Word("What is your name?", "tinnә oyaase'nә"))
         words.add(Word("My name is...", "oyaaset..."))
         words.add(Word("How are you feeling?", "michәksәs?"))
@@ -41,7 +47,7 @@ class PhrasesActivity : AppCompatActivity() {
 
         // Create an {@link WordAdapter}, whose data source is a list of {@link Word}s. The
         // adapter knows how to create list items for each item in the list.
-        val adapter = WordAdapter(this, words)
+        val adapter = WordAdapter(this, words, R.color.category_phrases)
 
         // Find the {@link ListView} object in the view hierarchy of the {@link Activity}.
         // There should be a {@link ListView} with the view ID called list, which is declared in the
@@ -50,6 +56,11 @@ class PhrasesActivity : AppCompatActivity() {
 
         // Make the {@link ListView} use the {@link WordAdapter} we created above, so that the
         // {@link ListView} will display list items for each {@link Word} in the list.
-        listView.setAdapter(adapter)
+        listView.adapter = adapter
+
+        listView.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, i, l ->
+            val mMedia = MediaPlayer.create(this, R.raw.number_one)
+            mMedia.start()
+        }
     }
 }

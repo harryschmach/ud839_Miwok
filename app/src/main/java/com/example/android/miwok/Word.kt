@@ -23,6 +23,8 @@ class Word
      */
     val miwokTranslation: String,
 
+    val mAudioResourceId: Int,
+
         private val NO_IMAGE_PROVIDED: Int = -1,
 
         var mImageResourceId: Int = NO_IMAGE_PROVIDED
@@ -31,6 +33,10 @@ class Word
 ) {
     fun checkImage(passedResourceIn: Int): Boolean{
         return passedResourceIn != NO_IMAGE_PROVIDED
+
+    }
+    fun giveAudioResource(): Int{
+        return mAudioResourceId
     }
 }
 
