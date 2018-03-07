@@ -30,7 +30,8 @@ class Word
         var mImageResourceId: Int = NO_IMAGE_PROVIDED
 
 
-) {
+)
+{
     fun checkImage(passedResourceIn: Int): Boolean{
         return passedResourceIn != NO_IMAGE_PROVIDED
 

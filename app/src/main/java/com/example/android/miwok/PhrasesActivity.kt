@@ -35,15 +35,15 @@ class PhrasesActivity : AppCompatActivity() {
         // Create a list of words
         val words = ArrayList<Word>()
         words.add(Word("Where are you going?", "minto wuksus", R.raw.phrase_where_are_you_going))
-        words.add(Word("What is your name?", "tinnә oyaase'nә"))
-        words.add(Word("My name is...", "oyaaset..."))
-        words.add(Word("How are you feeling?", "michәksәs?"))
-        words.add(Word("I’m feeling good.", "kuchi achit"))
-        words.add(Word("Are you coming?", "әәnәs'aa?"))
-        words.add(Word("Yes, I’m coming.", "hәә’ әәnәm"))
-        words.add(Word("I’m coming.", "әәnәm"))
-        words.add(Word("Let’s go.", "yoowutis"))
-        words.add(Word("Come here.", "әnni'nem"))
+        words.add(Word("What is your name?", "tinnә oyaase'nә", R.raw.phrase_what_is_your_name))
+        words.add(Word("My name is...", "oyaaset...",R.raw.phrase_my_name_is))
+        words.add(Word("How are you feeling?", "michәksәs?",R.raw.phrase_how_are_you_feeling))
+        words.add(Word("I’m feeling good.", "kuchi achit",R.raw.phrase_im_feeling_good))
+        words.add(Word("Are you coming?", "әәnәs'aa?",R.raw.phrase_are_you_coming))
+        words.add(Word("Yes, I’m coming.", "hәә’ әәnәm",R.raw.phrase_yes_im_coming))
+        words.add(Word("I’m coming.", "әәnәm", R.raw.phrase_im_coming))
+        words.add(Word("Let’s go.", "yoowutis", R.raw.phrase_lets_go))
+        words.add(Word("Come here.", "әnni'nem", R.raw.phrase_come_here))
 
         // Create an {@link WordAdapter}, whose data source is a list of {@link Word}s. The
         // adapter knows how to create list items for each item in the list.
@@ -59,7 +59,8 @@ class PhrasesActivity : AppCompatActivity() {
         listView.adapter = adapter
 
         listView.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, i, l ->
-            val mMedia = MediaPlayer.create(this, R.raw.number_one)
+            val mMediaResource = words[i].mAudioResourceId
+            val mMedia = MediaPlayer.create(this, mMediaResource)
             mMedia.start()
         }
     }

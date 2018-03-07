@@ -15,9 +15,11 @@
  */
 package com.example.android.miwok
 
+import android.media.MediaPlayer
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.AdapterView
 import android.widget.ListView
 
 class FamilyActivity : AppCompatActivity() {
@@ -28,16 +30,16 @@ class FamilyActivity : AppCompatActivity() {
 
         // Create a list of words
         val words = ArrayList<Word>()
-        words.add(Word("father", "әpә", R.drawable.family_father))
-        words.add(Word("mother", "әṭa", R.drawable.family_mother))
-        words.add(Word("son", "angsi", R.drawable.family_son))
-        words.add(Word("daughter", "tune", R.drawable.family_daughter))
-        words.add(Word("older brother", "taachi", R.drawable.family_older_brother))
-        words.add(Word("younger brother", "chalitti", R.drawable.family_younger_brother))
-        words.add(Word("older sister", "teṭe", R.drawable.family_older_sister))
-        words.add(Word("younger sister", "kolliti", R.drawable.family_younger_sister))
-        words.add(Word("grandmother ", "ama", R.drawable.family_grandmother))
-        words.add(Word("grandfather", "paapa", R.drawable.family_grandfather))
+        words.add(Word("father", "әpә",R.raw.family_father, R.drawable.family_father))
+        words.add(Word("mother", "әṭa",R.raw.family_mother, R.drawable.family_mother))
+        words.add(Word("son", "angsi",R.raw.family_son, R.drawable.family_son))
+        words.add(Word("daughter", "tune",R.raw.family_daughter, R.drawable.family_daughter))
+        words.add(Word("older brother", "taachi",R.raw.family_older_brother, R.drawable.family_older_brother))
+        words.add(Word("younger brother", "chalitti",R.raw.family_younger_brother, R.drawable.family_younger_brother))
+        words.add(Word("older sister", "teṭe",R.raw.family_older_sister, R.drawable.family_older_sister))
+        words.add(Word("younger sister", "kolliti",R.raw.family_younger_sister, R.drawable.family_younger_sister))
+        words.add(Word("grandmother ", "ama",R.raw.family_grandmother, R.drawable.family_grandmother))
+        words.add(Word("grandfather", "paapa",R.raw.family_grandfather, R.drawable.family_grandfather))
 
         // Create an {@link WordAdapter}, whose data source is a list of {@link Word}s. The
         // adapter knows how to create list items for each item in the list.
@@ -51,5 +53,10 @@ class FamilyActivity : AppCompatActivity() {
         // Make the {@link ListView} use the {@link WordAdapter} we created above, so that the
         // {@link ListView} will display list items for each {@link Word} in the list.
         listView.adapter = adapter
+        listView.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, i, l ->
+            val mMediaResource = words[i].mAudioResourceId
+            val mMedia = MediaPlayer.create(this, mMediaResource)
+            mMedia.start()
+        }
     }
 }
