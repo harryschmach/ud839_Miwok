@@ -74,8 +74,8 @@ class WordAdapter
 
         val imageViewMiwok = listItemView.findViewById(R.id.list_item_image) as ImageView
 
-        if (currentWord.checkImage(currentWord.mImageResourceId)){
-            imageViewMiwok.setImageResource(currentWord.mImageResourceId)
+        if (currentWord.checkImage(currentWord.imageResourceId)){
+            imageViewMiwok.setImageResource(currentWord.imageResourceId)
             imageViewMiwok.visibility = VISIBLE
         }else{
             imageViewMiwok.visibility = GONE

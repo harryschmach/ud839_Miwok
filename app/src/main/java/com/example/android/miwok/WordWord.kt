@@ -93,6 +93,6 @@ class WordWord {
     companion object {
 
         /** Constant value that represents no image was provided for this word  */
-        private val NO_IMAGE_PROVIDED = -1
+        private const val NO_IMAGE_PROVIDED = -1
     }
 }

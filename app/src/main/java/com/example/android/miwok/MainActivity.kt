@@ -31,11 +31,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // Find the View that shows the numbers category
-        val numbers = findViewById<TextView>(R.id.numbers)
+        val numbers = findViewById<View>(R.id.numbers) as TextView
 
         // Set a click listener on that View
-        numbers!!.setOnClickListener{ // The code in this method will be executed when the numbers category is clicked on.
-
+        numbers.setOnClickListener {
             // Create a new intent to open the {@link NumbersActivity}
             val numbersIntent = Intent(this@MainActivity, NumbersActivity::class.java)
 
@@ -44,46 +43,39 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Find the View that shows the family category
-        val family = findViewById<TextView>(R.id.family)
+        val family = findViewById<View>(R.id.family) as TextView
 
         // Set a click listener on that View
-        family!!.setOnClickListener{
-            // The code in this method will be executed when the family category is clicked on.
+        family.setOnClickListener {
+            // Create a new intent to open the {@link FamilyActivity}
+            val familyIntent = Intent(this@MainActivity, FamilyActivity::class.java)
 
-                // Create a new intent to open the {@link FamilyActivity}
-                val familyIntent = Intent(this@MainActivity, FamilyActivity::class.java)
-
-                // Start the new activity
-                startActivity(familyIntent)
+            // Start the new activity
+            startActivity(familyIntent)
         }
 
-            // Find the View that shows the colors category
-            val colors = findViewById<TextView>(R.id.colors)
+        // Find the View that shows the colors category
+        val colors = findViewById<View>(R.id.colors) as TextView
 
-            // Set a click listener on that View
-            colors!!.setOnClickListener{
-                // The code in this method will be executed when the colors category is clicked on.
+        // Set a click listener on that View
+        colors.setOnClickListener {
+            // Create a new intent to open the {@link ColorsActivity}
+            val colorsIntent = Intent(this@MainActivity, ColorsActivity::class.java)
 
-                // Create a new intent to open the {@link ColorsActivity}
-                val colorsIntent = Intent(this@MainActivity, ColorsActivity::class.java)
+            // Start the new activity
+            startActivity(colorsIntent)
+        }
 
-                // Start the new activity
-                startActivity(colorsIntent)
-            }
+        // Find the View that shows the phrases category
+        val phrases = findViewById<View>(R.id.phrases) as TextView
 
-            // Find the View that shows the phrases category
-            val phrases = findViewById<TextView>(R.id.phrases)
+        // Set a click listener on that View
+        phrases.setOnClickListener {
+            // Create a new intent to open the {@link PhrasesActivity}
+            val phrasesIntent = Intent(this@MainActivity, PhrasesActivity::class.java)
 
-            // Set a click listener on that View
-            phrases!!.setOnClickListener{
-                // The code in this method will be executed when the phrases category is clicked on.
-
-                // Create a new intent to open the {@link PhrasesActivity}
-                val phrasesIntent = Intent(this@MainActivity, PhrasesActivity::class.java)
-
-                // Start the new activity
-                startActivity(phrasesIntent)
-            }
+            // Start the new activity
+            startActivity(phrasesIntent)
         }
     }
-
+}
