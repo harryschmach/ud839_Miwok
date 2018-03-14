@@ -131,6 +131,7 @@ class NumbersActivity : AppCompatActivity() {
                 mMediaPlayer!!.setOnCompletionListener(mCompletionListener)
             }
         }
+        actionBar.setDisplayHomeAsUpEnabled(true)
     }
 
     override fun onStop() {
