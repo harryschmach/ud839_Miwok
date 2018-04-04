@@ -59,7 +59,7 @@ class WordAdapter
         val miwokTextView = listItemView!!.findViewById(R.id.miwok_text_view) as TextView
         // Get the version name from the current AndroidFlavor object and
         // set this text on the name TextView
-        miwokTextView.text = currentWord!!.miwokTranslation
+        miwokTextView.text = currentWord!!.miwokTranslation.toString()
 
         val listItemLinearLayout = listItemView.findViewById(R.id.list_linear_layout_bgcolor) as LinearLayout
         listItemLinearLayout.setBackgroundColor(bgColor)
@@ -70,7 +70,7 @@ class WordAdapter
         val defaultTextView = listItemView.findViewById(R.id.default_text_view) as TextView
         // Get the version number from the current AndroidFlavor object and
         // set this text on the number TextView
-        defaultTextView.text = currentWord.defaultTranslation
+        defaultTextView.text = currentWord.defaultTranslation.toString()
 
         val imageViewMiwok = listItemView.findViewById(R.id.list_item_image) as ImageView
 

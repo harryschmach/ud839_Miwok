@@ -16,13 +16,13 @@ class Word
     /**
      * Get the default translation of the word.
      */
-    var defaultTranslation: String
+    var defaultTranslation: Int
 
     /** Miwok translation for the word  */
     /**
      * Get the Miwok translation of the word.
      */
-    var miwokTranslation: String
+    var miwokTranslation: Int
 
     /** Audio resource ID for the word  */
     /**
@@ -44,7 +44,7 @@ class Word
      * @param miwokTranslation is the word in the Miwok language
      * @param audioResourceId is the resource ID for the audio file associated with this word
      */
-    constructor(defaultTranslation: String, miwokTranslation: String, audioResourceId: Int) {
+    constructor(defaultTranslation: Int, miwokTranslation: Int, audioResourceId: Int) {
         this.defaultTranslation = defaultTranslation
         this.miwokTranslation = miwokTranslation
         this.audioResourceId = audioResourceId
@@ -59,7 +59,7 @@ class Word
      * @param imageResourceId is the drawable resource ID for the image associated with the word
      * @param audioResourceId is the resource ID for the audio file associated with this word
      */
-    constructor(defaultTranslation: String, miwokTranslation: String, imageResourceId: Int,
+    constructor(defaultTranslation: Int, miwokTranslation: Int, imageResourceId: Int,
                 audioResourceId: Int) {
         this.defaultTranslation = defaultTranslation
         this.miwokTranslation = miwokTranslation
